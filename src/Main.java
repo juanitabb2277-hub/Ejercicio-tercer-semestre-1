@@ -54,10 +54,10 @@ public class Main {
                             do{
                                 System.out.println("\n===== MENÚ DE MASCOTAS =====");
                                 System.out.println("1. Modificar Edad");
-                                System.out.println("3. Modificar estado de salud");
-                                System.out.println("4. Modificar peso");
-                                System.out.println("5. Mostrar información");
-                                System.out.println("6. Salir");
+                                System.out.println("2. Modificar estado de salud");
+                                System.out.println("3. Modificar peso");
+                                System.out.println("4. Mostrar información");
+                                System.out.println("5. Salir");
                                 opcion1 = teclado.nextInt();
                                 switch (opcion1){
                                     case 1:
@@ -67,6 +67,7 @@ public class Main {
                                             int nuevaEdad = teclado.nextInt();
                                             listaMascotas.get(0).setEdad(nuevaEdad);
                                             System.out.println("Edad actualizada.");
+                                            ma.cumplirAnios();
                                         } else {
                                             System.out.println("No hay mascotas registradas.");
                                         }
@@ -78,6 +79,11 @@ public class Main {
                                             boolean estado = teclado.nextBoolean();
                                             listaMascotas.get(0).setSaludable(estado);
                                             System.out.println("Estado actualizado.");
+                                            if(estado == false){
+                                                ma.enfermar();
+                                            } else {
+                                                ma.recuperarSalud();
+                                            }
                                         } else {
                                             System.out.println("No hay mascotas registradas.");
                                         }
@@ -89,6 +95,11 @@ public class Main {
                                             double nuevoPeso = teclado.nextDouble();
                                             listaMascotas.get(0).setPeso(nuevoPeso);
                                             System.out.println("Peso actualizado.");
+                                            if(nuevoPeso > 25){
+                                                ma.engordar();
+                                            } else {
+                                                ma.adelgazar();
+                                            }
                                         } else {
                                             System.out.println("No hay mascotas registradas.");
                                         }
@@ -103,7 +114,7 @@ public class Main {
                                         System.out.println("opcion no invalida");
 
                                 }
-                            }while (opcion != 6);
+                            }while (opcion != 5);
                         }else{
                             System.out.println("No se ha encontrado mascota");
                         }

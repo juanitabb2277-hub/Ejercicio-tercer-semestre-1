@@ -44,6 +44,10 @@ public class Mascota {
     public void setSaludable(boolean saludable) {
         this.saludable = saludable;
     }
+    public void cumplirAnios() {
+        edad++;
+        System.out.println("La mascota cumplió años hace poco");
+    }
 
     public void engordar() {
         peso=0;
